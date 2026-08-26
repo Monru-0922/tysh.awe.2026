@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>音樂會節目冊</title>
+  
+  <!-- 字體引入 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;900&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- 外部樣式表 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. 封面海報頁 -->
+  <section id="page-cover" class="page active" onclick="showPage('page-main-menu')">
+    <div class="cover-overlay">
+      <div class="tap-hint"> 輕觸任意處入席 </div>
+    </div>
+  </section>
+
+  <!-- 2. 主選單頁 -->
+  <section id="page-main-menu" class="page">
+    <div class="container">
+      <div class="section-header">
+        <h1>JAPAN</h1>
+        <p>── 桃園高中校友管樂團第十三屆音樂會 ──</p>
+      </div>
+
+      <div class="menu-grid">
+        <button class="menu-card" onclick="openProfile('conductor')">
+          <div>
+            <div class="menu-tag">CONDUCTOR</div>
+            <div class="menu-title">指揮介紹</div>
+          </div>
+          <div class="arrow">›</div>
+        </button>
+
+        <button class="menu-card" onclick="openProfile('soloist')">
+          <div>
+            <div class="menu-tag">SOLOIST</div>
+            <div class="menu-title">獨奏者介紹</div>
+          </div>
+          <div class="arrow">›</div>
+        </button>
+
+        <button class="menu-card" onclick="openProfile('orchestra')">
+          <div>
+            <div class="menu-tag">ORCHESTRA / BAND</div>
+            <div class="menu-title">樂團介紹</div>
+          </div>
+          <div class="arrow">›</div>
+        </button>
+
+        <button class="menu-card" onclick="showPage('page-track-menu')">
+          <div>
+            <div class="menu-tag">PROGRAMME NOTES</div>
+            <div class="menu-title">演奏曲目介紹</div>
+          </div>
+          <div class="arrow">›</div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+<!-- 3. 指揮 / 獨奏 / 樂團 詳情頁 -->
+  <section id="page-profile-detail" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="showPage('page-main-menu')">← 返回主選單</button>
+      <div class="detail-card">
+        
+        <!-- 1. 頂部照片 -->
+        <div class="profile-photo-wrapper">
+          <img id="profile-photo" class="profile-photo" src="" alt="Photo" style="display: none;">
+        </div>
+
+        <!-- 2. 標籤與姓名頭銜 -->
+        <div class="detail-tag" id="profile-tag"></div>
+        <h2 class="detail-title" id="profile-title"></h2>
+        <div class="detail-sub" id="profile-sub"></div>
+
+        <!-- 3. 詳細內文介紹 -->
+        <div class="detail-content" id="profile-desc"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 曲目清單頁 -->
+  <section id="page-track-menu" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="showPage('page-main-menu')">← 返回主選單</button>
+      <div class="section-header">
+        <h1>演奏曲目</h1>
+        <p>PROGRAMME NOTES</p>
+      </div>
+      <div class="track-list" id="track-list-container"></div>
+    </div>
+  </section>
+
+  <!-- 5. 曲目介紹詳情頁 -->
+  <section id="page-track-detail" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="showPage('page-track-menu')">← 返回曲目清單</button>
+      <div class="detail-card">
+        <div class="detail-tag" id="track-num"></div>
+        <h2 class="detail-title" id="track-title"></h2>
+        <div class="detail-sub" id="track-composer"></div>
+        <div class="detail-content" id="track-desc"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 外部 JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
