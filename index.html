@@ -47,17 +47,14 @@
         </button>
 
         <button class="menu-card" onclick="showPage('page-track-menu')">
-          <div>
-            <div class="menu-tag">PROGRAMME NOTES</div>
-            <div class="menu-title">演奏曲目介紹</div>
-          </div>
+          <div class="menu-title">演奏曲目介紹</div>
           <div class="arrow">›</div>
         </button>
       </div>
     </div>
   </section>
 
-<!-- 3. 指揮 / 獨奏 / 樂團 詳情頁 -->
+  <!-- 3. 指揮 / 獨奏 / 樂團 詳情頁 -->
   <section id="page-profile-detail" class="page">
     <div class="container">
       <button class="back-btn" onclick="showPage('page-main-menu')">← 返回主選單</button>
@@ -68,8 +65,8 @@
           <img id="profile-photo" class="profile-photo" src="" alt="Photo" style="display: none;">
         </div>
 
-        <!-- 2. 標籤與姓名頭銜 -->
-        <div class="detail-tag" id="profile-tag"></div>
+        <!-- 2. 姓名與頭銜（已移除 Tag，補回姓名 profile-title） -->
+        <h2 class="detail-title" id="profile-title"></h2>
         <div class="detail-sub" id="profile-sub"></div>
 
         <!-- 3. 詳細內文介紹 -->
@@ -84,7 +81,6 @@
       <button class="back-btn" onclick="showPage('page-main-menu')">← 返回主選單</button>
       <div class="section-header">
         <h1>演奏曲目</h1>
-        <p>PROGRAMME NOTES</p>
       </div>
       <div class="track-list" id="track-list-container"></div>
     </div>
