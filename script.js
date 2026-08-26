@@ -25,16 +25,16 @@ const profiles = {
 
 // 10 首曲目資料庫
     const tracks = [
-      { id: 1, title: "Children Of The Shrine – Concert March ", composer: "/ James Swearingen ", desc: "樂曲以明快熱烈的旋律開場，展現萬物復甦的活力與希望，運用豐富的銅管與打擊樂交織出壯闊的氣勢。" },
-      { id: 2, title: "Carnival", composer: "Philip Sparke", desc: "獨奏小提琴以抒情而帶有憂鬱氣質的主題帶入，與管弦樂團展開深沉的對話，技巧層次豐富。" },
-      { id: 3, title: "貝殻のうた The Seashell Song", composer: "伊藤康英 ", desc: "以細緻的鋼琴分解和弦為基底，營造出寧靜如水、月色灑落湖面的靜謐氛圍。" },
-      { id: 4, title: "甲斐の虎~武田信玄, 天下取りへの道~", composer: "清水大輔 ", desc: "融入民族音樂元素的調性，描繪崇山峻嶺間的風聲與流水，氣勢宏偉。" },
-      { id: 5, title: "Lyrical Suite EUROPA for Saxophone Quintet", composer: "光田健一 ", desc: "快速流轉的節奏與不對稱拍號，帶給聽眾充滿戲劇張力的感官衝擊。" },
-      { id: 6, title: "季(とき)のまど Perspective on Time", composer: "長生淳", desc: "由木管樂器主導的輕快小品，呈現鄉村午後悠閒而自在的步調。" },
-      { id: 7, title: "Japanese Folk Song Suite", composer: "兼田 敏", desc: "節奏明快、充滿躍動感的樂章，展現樂器各聲部間的幽默追逐與巧妙對位。" },
-      { id: 8, title: "ケロッ!とマーチ", composer: "沢田完 (arr.山下國俊)", desc: "低音弦樂器營造出深沉且靜謐的空間感，引領聽者進入內省的冥想世界。" },
-      { id: 9, title: "ひだまりの詩 Le Couple", composer: "日向敏文 (arr.小島里美)", desc: "豎琴與鐵琴的點綴如同劃破夜空的流星，整體配器晶瑩剔透、極具畫面感。" },
-      { id: 10, title: "檄!帝国華撃団", composer: "田中公平 (arr.宮川成治)", desc: "全體樂團齊鳴的壯麗終章，將全場氣氛推向最高潮，象徵克服一切困境後的勝利喜悅。" }
+      { id: 1, title: "Children Of The Shrine – Concert March ", composer: "/ James Swearingen ", desc: "扒拉扒拉" },
+      { id: 2, title: "Carnival", composer: "Philip Sparke", desc: "扒拉扒拉" },
+      { id: 3, title: "貝殻のうた The Seashell Song", composer: "伊藤康英 ", desc: "扒拉扒拉" },
+      { id: 4, title: "甲斐の虎~武田信玄, 天下取りへの道~", composer: "清水大輔 ", desc: "扒拉扒拉" },
+      { id: 5, title: "Lyrical Suite EUROPA for Saxophone Quintet", composer: "光田健一 ", desc: "扒拉扒拉" },
+      { id: 6, title: "季(とき)のまど Perspective on Time", composer: "長生淳", desc: "扒拉扒拉" },
+      { id: 7, title: "Japanese Folk Song Suite", composer: "兼田 敏", desc: "扒拉扒拉" },
+      { id: 8, title: "ケロッ!とマーチ", composer: "沢田完 (arr.山下國俊)", desc: "扒拉扒拉" },
+      { id: 9, title: "ひだまりの詩 Le Couple", composer: "日向敏文 (arr.小島里美)", desc: "扒拉扒拉" },
+      { id: 10, title: "檄!帝国華撃団", composer: "田中公平 (arr.宮川成治)", desc: "扒拉扒拉" }
     ];
 
 // 動態生成 10 首曲目按鈕（含第 4 首後的中場休息）
