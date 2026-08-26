@@ -68,7 +68,6 @@ function showPage(pageId) {
 // 載入人物/樂團介紹
 function openProfile(type) {
   const data = profiles[type];
-  document.getElementById('profile-tag').innerText = data.tag;
   document.getElementById('profile-title').innerText = data.name;
   document.getElementById('profile-sub').innerText = data.title;
   document.getElementById('profile-desc').innerText = data.desc;
