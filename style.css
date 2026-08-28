@@ -1,10 +1,10 @@
 :root {
-  --bg-dark: #141210;     /* 墨黑 */
-  --card-bg: #1c1815;     /* 漆器黑 / 焦茶色 */
-  --accent: #b22d15;      /* 緋紅 / 武田赤備 */
-  --accent-gold: #c5a059; /* 箔金 */
-  --text: #f4efe6;        /* 鳥之子色（和紙白） */
-  --text-sub: #9e9389;    /* 灰枯茶 */
+  --bg-primary: #6e241c;       /* 深緋紅主色 */
+  --card-bg: rgba(0, 0, 0, 0.18); /* 半透明暗底，融合背景 */
+  --card-border: rgba(255, 255, 255, 0.22); /* 白細框 */
+  --text-white: #ffffff;      /* 純白文字 */
+  --text-sub: rgba(255, 255, 255, 0.8); /* 柔和白文字 */
+  --white-trans: rgba(255, 255, 255, 0.1); /* 按鈕微白底 */
 }
 
 * {
@@ -16,20 +16,18 @@
 }
 
 body {
-  background-color: var(--bg-dark);
-  color: var(--text);
+  background-color: var(--bg-primary);
+  color: var(--text-white);
   overflow-x: hidden;
-  background-image: 
-    radial-gradient(circle at 50% 30%, rgba(197, 160, 89, 0.04), transparent 70%),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
   min-height: 100vh;
+  line-height: 1.6;
 }
 
 .page {
   display: none;
   min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
-  padding-bottom: 40px;
 }
 
 .page.active {
@@ -40,7 +38,7 @@ body {
 #page-cover {
   position: relative;
   height: 100vh;
-  height: 100dvh; /* 動態視窗高度 */
+  height: 100dvh;
   background: url('image/01.jpg') center/cover no-repeat;
   cursor: pointer;
 }
@@ -48,7 +46,7 @@ body {
 .cover-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 15%, transparent 60%);
+  background: linear-gradient(to top, rgba(110, 36, 28, 0.85) 0%, rgba(0, 0, 0, 0.2) 60%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -58,19 +56,24 @@ body {
 
 .tap-hint {
   font-size: 0.95rem;
-  color: var(--accent-gold);
+  color: var(--text-white);
   letter-spacing: 3px;
+  padding: 8px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 30px;
+  background: rgba(110, 36, 28, 0.4);
+  backdrop-filter: blur(4px);
   animation: pulse 1.8s infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.4; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(-5px); }
+  0%, 100% { opacity: 0.6; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-4px); }
 }
 
 /* 通用容器 & 標題 */
 .container {
-  padding: 24px 16px 40px;
+  padding: 24px 16px calc(40px + env(safe-area-inset-bottom));
   max-width: 600px;
   margin: 0 auto;
 }
@@ -81,9 +84,10 @@ body {
 }
 
 .section-header h1 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   letter-spacing: 4px;
-  color: var(--accent-gold);
+  color: var(--text-white);
+  font-weight: 900;
   margin-bottom: 6px;
 }
 
@@ -95,16 +99,23 @@ body {
 
 /* 通用返回按鈕 */
 .back-btn {
-  background: none;
-  border: none;
-  color: var(--accent-gold);
-  font-size: 0.95rem;
+  background: var(--white-trans);
+  border: 1px solid var(--card-border);
+  color: var(--text-white);
+  font-size: 0.85rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 0;
+  padding: 8px 16px;
+  border-radius: 20px;
   margin-bottom: 16px;
+  transition: all 0.2s ease;
+}
+
+.back-btn:active {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(0.96);
 }
 
 /* 頁面 2: 主選單列表 */
@@ -115,40 +126,33 @@ body {
 }
 
 .menu-card {
-  background-color: var(--card-bg);
-  border: 1px solid rgba(197, 160, 89, 0.2);
-  border-left: 3px solid var(--accent-gold);
-  border-radius: 8px;
-  padding: 16px 20px;
+  background-color: var(--white-trans);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 18px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--text);
+  color: var(--text-white);
   cursor: pointer;
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.15s ease;
   text-align: left;
 }
 
 .menu-card:active {
   transform: scale(0.98);
-  border-color: var(--accent);
-  background-color: #241e1a;
-}
-
-.menu-tag {
-  font-size: 0.8rem;
-  color: var(--accent-gold);
-  margin-bottom: 2px;
-  letter-spacing: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .menu-title {
   font-size: 1.1rem;
   font-weight: 600;
+  letter-spacing: 1.5px;
 }
 
 .arrow {
-  color: var(--accent-gold);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 1.2rem;
 }
 
@@ -160,30 +164,28 @@ body {
 }
 
 .track-btn {
-  background-color: var(--card-bg);
-  border: 1px solid rgba(197, 160, 89, 0.15);
-  border-left: 3px solid var(--accent-gold);
+  background-color: var(--white-trans);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   padding: 14px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--text);
+  color: var(--text-white);
   cursor: pointer;
   text-align: left;
   width: 100%;
+  transition: all 0.15s ease;
 }
 
-.track-btn.featured {
-  border: 1px solid var(--accent);
-  border-left: 4px solid var(--accent);
-  background: linear-gradient(90deg, rgba(178, 45, 21, 0.2), rgba(28, 24, 21, 0.95));
-  box-shadow: 0 4px 12px rgba(178, 45, 21, 0.15);
+.track-btn:active {
+  transform: scale(0.98);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .track-info .track-num {
   font-size: 0.75rem;
-  color: var(--accent-gold);
+  color: var(--text-sub);
   margin-bottom: 2px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -201,7 +203,7 @@ body {
   justify-content: center;
   gap: 14px;
   margin: 14px 0;
-  color: var(--accent-gold);
+  color: var(--text-white);
   font-size: 0.85rem;
   letter-spacing: 3px;
 }
@@ -211,77 +213,65 @@ body {
   content: "";
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(197, 160, 89, 0.4), transparent);
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
 }
 
 .intermission-badge {
-  border: 1px solid rgba(197, 160, 89, 0.3);
-  padding: 6px 14px;
+  border: 1px solid var(--card-border);
+  padding: 6px 16px;
   border-radius: 20px;
-  background: rgba(28, 24, 21, 0.8);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 /* 內文詳情卡片 */
 .detail-card {
   background-color: var(--card-bg);
-  border-radius: 10px;
-  padding: 24px;
-  border: 1px solid rgba(197, 160, 89, 0.2);
-}
-
-.detail-tag {
-  font-size: 0.85rem;
-  color: var(--accent-gold);
-  font-weight: 600;
-  letter-spacing: 2px;
+  border-radius: 12px;
+  padding: 24px 20px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .detail-title {
   font-size: 1.35rem;
+  color: var(--text-white);
   margin: 6px 0 4px;
   line-height: 1.4;
+  font-weight: 600;
 }
 
 .detail-sub {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-sub);
   margin-bottom: 18px;
   padding-bottom: 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .detail-content {
   font-size: 0.95rem;
   line-height: 1.85;
-  color: #e0e0e0;
+  color: var(--text-white);
   white-space: pre-line;
-  text-align: justify;
+  text-align: left;
 }
-/* 照片包裝區塊 */
+
+/* 照片包裝區塊（改善載入突兀感） */
 .profile-photo-wrapper {
   margin-bottom: 18px;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 /* 上方大圖/肖像照樣式 */
 .profile-photo {
   width: 100%;
-  max-height: 280px;      /* 限制最大高度，避免手機第一屏被大圖全部佔滿 */
-  object-fit: cover;      /* 保持比例裁切 */
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-}
-
-.profile-header-text {
-  flex: 1;
-}
-
-.profile-header-text .detail-title {
-  margin: 0 0 4px;
-}
-
-.profile-header-text .detail-sub {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
+  max-height: 280px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.05); /* 圖片未載入前的淺底佔位 */
 }
